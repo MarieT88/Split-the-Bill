@@ -72,7 +72,7 @@ User.addHook('beforeSave', async(user)=> {
 // login, token & authentication methods
 User.findByToken = async function(token){
   try {
-    const { id } = jwt.verify(token, process.env.JWT);
+    const { id } = jwt.verify(token, JWT);
     const user = await this.findByPk(id);
     if(user){
       return user;
