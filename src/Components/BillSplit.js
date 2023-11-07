@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { createSplit, fetchUsers, fetchSplits, fetchBills, updateBill } from '../store';
 import BillDetails from './BillDetails';
+import QuickSplitCalc from './QuickSplitCalc';
 
 
 const BillSplit = () => {
@@ -113,6 +114,9 @@ const BillSplit = () => {
           <button>Split Bill</button>
         </form>
      </div>
+     <div>
+        <QuickSplitCalc />
+      </div>
   </div>
   );
 };
