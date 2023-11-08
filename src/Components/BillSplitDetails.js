@@ -52,42 +52,44 @@ const BillSplitDetails = () => {
   };
   
   return (
-          <div>
-        <h2>Split Details</h2>
-        <ul>
-        {groupedSplits.map((group) => {
-          const totalAmountContributed = group.userIds.reduce(
-            (sum, user) => sum + user.amount,
-            0
-          );
-          return (
-            <li key={group.billId}>
-              <h5>{group.name}</h5>
-              <div>
-                {group.isPaid ? (
-                  <span style={{ color: 'green' }}> Paid</span>
-                ) : checkBillPaid(group) ? (
-                  <span style={{ color: 'green' }}> Paid</span>
-                ) : (
-                 <span style={{ color: 'red' }}>
-                   Unpaid - ${(group.amount - totalAmountContributed).toFixed(2)} remaining
-                 </span>
-                )}
-              </div>
-              <h5>Split Between:</h5>
-              <ul>
-                {group.userIds.map((user) => (
-                  <li key={user.userId}>
-                    {users.find((u) => u.id === user.userId)?.name} - $
-                    {user.amount}
+    <div className='columns'>
+      <div className='card'>
+        <h2 className='card-header'>Split Details</h2>
+          <div className='card-body'>
+            <ul className='split_card'>
+              {groupedSplits.map((group) => {
+                const totalAmountContributed = group.userIds.reduce(
+                  (sum, user) => sum + user.amount, 0);
+                return (
+                  <li key={group.billId}>
+                    <p><span className="bold-text">Bill: </span>{group.name}</p>
+                    <div>
+                      {group.isPaid ? (
+                        <p><span className="bold-text">Status: </span><span style={{ color: 'green' }}>Paid</span></p>
+                      ) : checkBillPaid(group) ? (
+                        <p><span className="bold-text">Status: </span><span style={{ color: 'green' }}>Paid</span></p>
+                      ) : (
+                        <p><span className="bold-text">Status: </span><span style={{ color: 'red' }}>
+                          Unpaid - ${(group.amount - totalAmountContributed).toFixed(2)} remaining</span>
+                        </p>
+                      )}
+                    </div>
+                      <p><span className="bold-text">Split Between:</span></p>
+                      <ul className='split_ul'>
+                        {group.userIds.map((user) => (
+                          <li key={user.userId}>
+                            {users.find((u) => u.id === user.userId)?.name} - $
+                            {user.amount}
+                          </li>
+                        ))}
+                      </ul>
                   </li>
-                ))}
-              </ul>
-            </li>
-          );
-        })}
-        </ul>
-      </div>  
+                );
+              })}
+            </ul>
+        </div>  
+      </div>
+    </div>
   );
   
 };

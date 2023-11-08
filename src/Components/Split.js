@@ -75,25 +75,24 @@ function Split() {
         return (
           <li key={group.billId}>
             <div>
-            <h4>{group.name}</h4>
-              <p>Total: {group.amount} </p> 
-              <p>Note: {group.note}</p>
-              <p>Due Date:{' '} {group.dueDate}</p>
-              <p>
-              {group.isPaid ? (
-                <span style={{ color: 'green' }}> Paid</span>
-              ) : checkBillPaid(group) ? (
-                <span style={{ color: 'green' }}> Paid</span>
-              ) : (
-                <span style={{ color: 'red' }}>
-                  {' '}
-                  Unpaid - ${group.amount - totalAmountContributed.toFixed(2)} remaining
-                </span>
-              )}
-              </p>
+              <h4>{group.name}</h4>
+                <p><span className="bold-text">Total: </span>${group.amount}</p> 
+                <p><span className="bold-text">Due Date: </span> {group.dueDate}</p>
+                <p><span className="bold-text">Status: </span> 
+                  {group.isPaid ? (
+                    <span style={{ color: 'green' }}> Paid</span>
+                  ) : checkBillPaid(group) ? (
+                    <span style={{ color: 'green' }}> Paid</span>
+                  ) : (
+                    <span style={{ color: 'red' }}>
+                      {' '}Unpaid - ${group.amount - totalAmountContributed.toFixed(2)} remaining
+                    </span>
+                  )}
+                </p>
+                { group.note && <p><span className="bold-text">Note: </span>{group.note}</p>}
               </div>
               <div>
-                <h6>Split Between:</h6>
+                <p><span className="bold-text">Split Between:</span></p>
                   <ul>
                     {group.userIds.map(user => (
                       <li key={user.userId}>

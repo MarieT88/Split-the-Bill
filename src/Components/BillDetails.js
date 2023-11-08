@@ -19,13 +19,13 @@ const BillDetails = () => {
     <div className='columns' >
       <div className="card">
         <h2 className="card-header">Bill Details</h2>
-        <div className="card-body">
-          <p>Bill: {bill.name}</p>
-          <p>Amount: {bill.amount}</p>
-          <p>Due Date: {bill.dueDate}</p>
-          { bill.note && <p>Note: {bill.note}</p>}
+          <div className="card-body">
+            <p><span className="bold-text">Bill: </span>{bill.name}</p>
+            <p><span className="bold-text">Amount: </span>${bill.amount}</p>
+            <p><span className="bold-text">Due Date: </span>{bill.dueDate}</p>
+            { bill.note && <p><span className="bold-text">Note: </span>{bill.note}</p>}
+          </div>
         </div>
-      </div>
       <div>
         <BillSplitDetails />
       </div>

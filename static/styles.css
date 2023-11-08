@@ -66,3 +66,18 @@ td > a:hover {
 h2 {
   margin-bottom: 2rem;
 }
+
+/* Bill Detail styles */
+.split_ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.split_card {
+  padding-left: 0;
+  list-style: none;
+}
+
+.bold-text {
+  font-weight: bold;
+}

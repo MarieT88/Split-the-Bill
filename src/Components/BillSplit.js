@@ -92,6 +92,7 @@ const BillSplit = () => {
       <div>
         <BillDetails />
       </div>
+      <br/>
       <div>
         <h2>Split the Bill</h2>
         <form onSubmit={handleSplit}>
@@ -114,6 +115,7 @@ const BillSplit = () => {
           <button>Split Bill</button>
         </form>
      </div>
+     <br/>
      <div>
         <QuickSplitCalc />
       </div>
