@@ -35,7 +35,7 @@ const BillList = () => {
                   <td>
                    <Link to={`/bills/${bill.id}`}>{bill.name}</Link>
                   </td>
-                  <td>{bill.amount}</td>
+                  <td>${bill.amount}</td>
                   <td>{bill.dueDate}</td>
                   <td>
                    <button className= "btn btn-outline-dark btn-sm" onClick={ ()=> destroy(bill)}>x</button>

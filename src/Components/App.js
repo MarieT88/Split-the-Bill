@@ -9,6 +9,7 @@ import BillList from "./BillList";
 import Split from "./Split";
 import BillSplit from "./BillSplit";
 import Home from "./Home";
+import Nav from "./Nav";
 import { loginWithToken, fetchUsers, fetchSplits, fetchBills } from '../store';
 
 
@@ -40,44 +41,38 @@ const App = ()=> {
 
   return (
     <div>
-      <div>
-        <h1>Split the Bill</h1>
-      </div>
-      {
-        !!auth.id  && (
-          <div>
-            <nav className="navbar navbar-inverse">
-              <div className="navbar-header">
-                <h2 className="navbar-brand">SplitTheBill</h2>
-              </div>
-                <Link to="/newbill" className="nav navbar-nav">New Bill</Link>
-                <Link to="/mybills" className="nav navbar-nav">My Bills</Link>
-                <Link to="/splits" className="nav navbar-nav">Shared Bills</Link>
-                <Link to="/profile" className="nav navbar-nav">Profile</Link>
-            </nav>
-          </div>
-        )
-      }
+      <Nav />
       {
         !!auth.id && (
           <div>
             <Routes>
+             <Route path="/nav" element={<Nav />} />
              <Route path="/profile" element={<UserProfile />} />
              <Route path="/newbill" element={<BillCreate />} />
              <Route path="/mybills" element={<BillList />} />
              <Route path="/bills/:id" element={<BillSplit />} />
              <Route path="/splits" element={<Split />} />
              <Route path="/" element={<Home/>} />
+             <Route path="/logout" element={<Logout />} />
             </Routes>
           </div>
         )
       }
-      {
-        auth.id ? <Logout /> : <Login />
+            {
+        !auth.id && (
+          <div>
+            <Routes>
+             <Route path="/login" element={<Login />} />
+             <Route path="/nav" element={<Nav />} />
+             <Route path="/" element={<Home/>} />
+            </Routes>
+          </div>
+        )
       }
     </div>
   );
 };
 
 
-export default App;
+export default App; 
+

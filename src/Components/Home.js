@@ -1,7 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../store';
-import Logout from "./Logout";
 
 
 const Home = ()=> {
@@ -10,9 +8,8 @@ const Home = ()=> {
   
   return (
     <div>
-      <div>
-        <h3>Welcome { auth.username }!</h3>
-      </div>
+      {!!auth.id && (<h3>Welcome { auth.username }!</h3>)}
+      <p>Paragraph about how to use this app</p>
     </div>
   );
   
