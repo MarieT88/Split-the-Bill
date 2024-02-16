@@ -1,4 +1,4 @@
 - npm i
 - npm run start:dev
 
-The web applications allows users to calculate, split and share bills. 
+Split the Bill allows users to calculate, split and track shared bills. 
